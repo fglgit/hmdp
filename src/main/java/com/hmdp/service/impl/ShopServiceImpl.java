@@ -70,8 +70,11 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
         //Shop shop=queryWithPassThrough(id);
 
         //缓存击穿
-        //Shop shop=queryWithMutex(id);
-        Shop shop = queryWithLogicalExpire(id);
+        Shop shop=queryWithMutex(id);
+
+        //缓存击穿
+        //逻辑过期前提是需要把缓存放在里面
+        //Shop shop = queryWithLogicalExpire(id);
         if(shop == null){
             return Result.fail("店铺不存在");
         }
