@@ -57,6 +57,12 @@
             <artifactId>hutool-all</artifactId>
             <version>5.7.17</version>
         </dependency>
+        <!-- AspectJ 编织器，核心库 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.7</version> <!-- 推荐版本 1.9.7，稳定适配 Spring Boot 2.3.x -->
+        </dependency>
     </dependencies>
 
     <build>

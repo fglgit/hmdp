@@ -1,5 +1,7 @@
 package com.hmdp;
 
+import com.hmdp.service.IVoucherOrderService;
+import com.hmdp.service.IVoucherService;
 import com.hmdp.service.impl.ShopServiceImpl;
 import com.hmdp.utils.RedisIdWorker;
 import org.junit.jupiter.api.Test;
@@ -43,5 +45,12 @@ class HmDianPingApplicationTests {
         latch.await();
         long end = System.currentTimeMillis();
         System.out.println("time="+(end-begin));
+    }
+
+    @Resource
+    private IVoucherOrderService voucherOrderService;
+    @Test
+    void testvoucher(){
+        voucherOrderService.seckillVoucher(1L);
     }
 }
