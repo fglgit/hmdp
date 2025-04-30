@@ -92,7 +92,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
             //3、存在
             return JSONUtil.toBean(shopJson, Shop.class);
         }
-        if(shopJson==null){
+        if(shopJson!=null){
             //查到了空值说明不存在店铺信息
             return null;
         }
