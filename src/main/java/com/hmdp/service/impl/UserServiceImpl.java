@@ -71,9 +71,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
         String code = (String) cacheCode;
         //验证码失效或者与session对应不上
-        if(cacheCode==null||!code.equals(loginForm.getCode())){
-            return Result.fail("验证码错误");
-        }
+//        if(cacheCode==null||!code.equals(loginForm.getCode())){
+//            return Result.fail("验证码错误");
+//        }
         //查找用户，Mybatis-plus实现的
         User user=query().eq("phone",phone).one();
 
