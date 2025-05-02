@@ -119,7 +119,7 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
         Long result=stringRedisTemplate.execute(
                 SECKILL_SCRIPT,
                 Collections.emptyList(),
-                voucherId.toString(),userId.toString(),String.valueOf(orderId)
+                voucherId.toString(),userId.toString()
         );
         int r=result.intValue();
         // 2.判断结果是否为0
@@ -159,7 +159,7 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
         // 6.扣减库存
         boolean success = seckillVoucherService.update()
                 .setSql("stock = stock - 1") // set stock = stock - 1
-                .eq("voucher_id", voucherOrder).gt("stock", 0) // where id = ? and stock > 0
+                .eq("voucher_id", voucherOrder.getVoucherId()).gt("stock", 0) // where id = ? and stock > 0
                 .update();
         if (!success) {
             // 扣减失败
